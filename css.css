@@ -1,0 +1,147 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+html {
+    font-size: 16px;
+    font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+:root {
+    --Moderate-violet: hsl(263, 55%, 52%);
+    --Very-dark-grayish-blue: hsl(217, 19%, 35%);
+    --Very-dark-blackish-blue: hsl(219, 29%, 14%);
+    --White: hsl(0, 0%, 100%);
+    --Light-gray: hsl(0, 1%, 67%);
+    --Light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+.container {
+    display: grid;
+    padding: 20px;
+    gap: 1rem 0.5rem;
+    background-color: var(--Light-grayish-blue);
+    grid-template-areas:
+        'card-1 card-1 card-2 card-3 '
+        'card-4 card-5 card-5 card-3';
+}
+
+.card {
+    display: grid;
+    gap: 0rem;
+    border-radius: 10px;
+    color: white;
+    padding: 2rem;
+    grid-template-areas:
+        'small paragraph-3'
+        'imag-2 imag-2'
+        'imag-2 imag-2'
+        'paragraph-1 paragraph-1'
+        'paragraph-2 paragraph-2';
+}
+
+.small {
+    grid-area: small;
+    display: grid;
+    gap: 0px;
+    grid-template-areas:
+        'imag-1 title-1'
+        'imag-1 title-2';
+
+}
+
+.imag {
+    grid-area: imag-1;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+}
+
+.card-h2 {
+    grid-area: title-1;
+    font-size: 1rem;
+
+}
+
+.card-h5 {
+    grid-area: title-2;
+    color: var(--Light-gray);
+    font-size: 0.8rem;
+}
+
+.card-h3 {
+    grid-area: paragraph-1;
+}
+
+.card-p {
+    grid-area: paragraph-2;
+    color: var(--Light-gray);
+}
+
+.card-1 {
+    grid-area: card-1;
+    background-image: url(images-grid/bg-pattern-quotation.svg);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-color: var(--Moderate-violet);
+    color: var(--White);
+}
+
+.card-2 {
+    grid-area: card-2;
+    background-color: var(--Very-dark-blackish-blue);
+    color: var(--White);
+}
+
+.card-3 {
+    grid-area: card-3;
+    color: var(--Very-dark-blackish-bluelue);
+    background-color: var(--White);
+}
+
+.card-4 {
+    color: var(--Very-dark-blackish-bluelue);
+    grid-area: card-4;
+    background-color: var(--White);
+}
+
+.card-5 {
+    grid-area: card-5;
+    background-color: black;
+}
+
+@media screen and (max-width :768px) {
+    html {
+        font-size: 12px;
+    }
+
+    .container {
+        grid-template-areas:
+            'card-1'
+            ' card-2'
+            'card-3'
+            ' card-5'
+            'card-4';
+        gap: 20px;
+    }
+
+    .card {
+        grid-template-areas:
+            'small  paragraph-3'
+            'paragraph-1 imag-2'
+            'paragraph-1 imag-2'
+            'paragraph-2 imag-2'
+            'paragraph-2 imag-2';
+        gap: 5px;
+    }
+    
+    .small {
+        margin-right: auto;
+        /* this margin for make names and images closer in small screens
+        cause I write "gap: 0px" and I didn`t have a good result */
+        gap: 0px;
+    }
+}
